@@ -100,6 +100,7 @@ namespace SocialNetworkSite
 
         private void VerifyEmail()
         {
+            lbPasswordSettings.Visible = false;
             checkBox1.Visible = false;
             label5.Visible = false;
             label6.Visible = false;
@@ -224,7 +225,7 @@ namespace SocialNetworkSite
 
         private bool ValidationPassword(string password)
         {
-            Regex rg = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-.]).{6,15}$");
+            Regex rg = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,15}$");
             if (rg.IsMatch(password))
             {
                 return true;
@@ -259,6 +260,7 @@ namespace SocialNetworkSite
         {
             if (tbEmailCode.Text == emailCode)
             {
+                lbPasswordSettings.Visible = true;
                 checkBox1.Visible = true;
                 label5.Visible = true;
                 label6.Visible = true;

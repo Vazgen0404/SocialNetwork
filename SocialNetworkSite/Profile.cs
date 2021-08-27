@@ -12,7 +12,7 @@ namespace SocialNetworkSite
 {
     public partial class Profile : Form
     {
-        SocialNetworkContext context = new SocialNetworkContext();
+        
         string image;
 
         public Profile()
@@ -32,11 +32,11 @@ namespace SocialNetworkSite
             }
             else if (MainForm.ViewProfil == null)
             {
-                user = context.Users.FirstOrDefault(user => user.Email == MainForm.SignedEmail);
+                user = Account.context.Users.FirstOrDefault(user => user.Email == MainForm.SignedEmail);
             }
             else
             {
-                user = context.Users.FirstOrDefault(user => user.Email == MainForm.ViewProfil);
+                user = Account.context.Users.FirstOrDefault(user => user.Email == MainForm.ViewProfil);
             }
 
             if (user!=null)
@@ -86,7 +86,7 @@ namespace SocialNetworkSite
         private void btEdit_Click(object sender, EventArgs e)
         {
             panelEditing.Visible = true;
-            User user = context.Users.FirstOrDefault(user => user.Email == MainForm.SignedEmail);
+            User user = Account.context.Users.FirstOrDefault(user => user.Email == MainForm.SignedEmail);
 
             tbFirstName.Text = user.FirstName;
             tbLastName.Text = user.LastName;
@@ -120,7 +120,7 @@ namespace SocialNetworkSite
 
         private void btSave_Click(object sender, EventArgs e)
         {
-            User user = context.Users.FirstOrDefault(user => user.Email == lbEmail.Text);
+            User user = Account.context.Users.FirstOrDefault(user => user.Email == lbEmail.Text);
             user.BirthdayDate = dtBirthday.Value.Date.ToShortDateString();
             user.Address = tbAddress.Text;
             if (checkBoxMale.Checked)
@@ -141,7 +141,7 @@ namespace SocialNetworkSite
                 }
             }
 
-            context.SaveChanges();
+            Account.context.SaveChanges();
             DialogResult result = MessageBox.Show("Your data has been successfully modified", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (result == DialogResult.OK)
             {

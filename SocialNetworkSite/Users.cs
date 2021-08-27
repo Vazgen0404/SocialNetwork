@@ -12,7 +12,7 @@ namespace SocialNetworkSite
 {
     public partial class Users : Form
     {
-        SocialNetworkContext context = new SocialNetworkContext();
+        public static List<PictureBox> pictures = new List<PictureBox>();
         
         public Users()
         {
@@ -27,7 +27,7 @@ namespace SocialNetworkSite
             int labelX = 65;
             int labelY = 159;
             int count = 0;
-            foreach (User user in context.Users)
+            foreach (User user in Account.context.Users)
             {
                 PictureBox picture = new PictureBox();
                 if (user.Picture != null)
@@ -46,13 +46,14 @@ namespace SocialNetworkSite
                 picture.Name = user.Email;
                 picture.Click += Picture_Click;
                 picture.Cursor = Cursors.Hand;
+                pictures.Add(picture);
 
                 Label label = new Label();
                 label.Location = new Point(labelX, labelY);
                 label.Size = new Size(165, 20);
                 label.Text = user.FirstName + " " + user.LastName;
-                this.Controls.Add(picture);
-                this.Controls.Add(label);
+                Controls.Add(picture);
+                Controls.Add(label);
                 count++;
                 pictureX += 240;
                 labelX += 240;
@@ -73,6 +74,17 @@ namespace SocialNetworkSite
             PictureBox picture = (PictureBox)sender;
             MainForm.ViewProfil = picture.Name;
             Account.ViewProfile();
+        }
+        public static void LoadPictures()
+        {
+            Account.context = new SocialNetworkContext();
+
+            foreach (PictureBox picture in pictures)
+            {
+                User user = Account.context.Users.FirstOrDefault(user => user.Email == picture.Name);
+                MemoryStream stream = new MemoryStream(user.Picture);
+                picture.Image = Image.FromStream(stream);
+            }
         }
     }
 }

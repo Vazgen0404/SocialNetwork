@@ -47,12 +47,14 @@ namespace SocialNetworkSite
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lbPasswordSettings = new System.Windows.Forms.Label();
             this.gbRegister.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbRegister
             // 
             this.gbRegister.BackColor = System.Drawing.SystemColors.Control;
+            this.gbRegister.Controls.Add(this.lbPasswordSettings);
             this.gbRegister.Controls.Add(this.tbEmailCode);
             this.gbRegister.Controls.Add(this.lbSignIn);
             this.gbRegister.Controls.Add(this.label8);
@@ -265,6 +267,17 @@ namespace SocialNetworkSite
             this.label1.TabIndex = 0;
             this.label1.Text = "------------------";
             // 
+            // lbPasswordSettings
+            // 
+            this.lbPasswordSettings.AutoSize = true;
+            this.lbPasswordSettings.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbPasswordSettings.Location = new System.Drawing.Point(29, 358);
+            this.lbPasswordSettings.Name = "lbPasswordSettings";
+            this.lbPasswordSettings.Size = new System.Drawing.Size(567, 40);
+            this.lbPasswordSettings.TabIndex = 19;
+            this.lbPasswordSettings.Text = "The password must contain at least three character categories among the following" +
+    ": \r\nUppercase characters (A-Z) Lowercase characters (a-z) Digits (0-9)";
+            // 
             // Registration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -300,5 +313,6 @@ namespace SocialNetworkSite
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.GroupBox gbRegister;
+        private System.Windows.Forms.Label lbPasswordSettings;
     }
 }

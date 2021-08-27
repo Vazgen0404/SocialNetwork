@@ -26,6 +26,7 @@ namespace SocialNetworkSite
 
 
         public static List<Form> forms = new List<Form>();
+        public static List<Button> buttons = new List<Button>();
 
         public static string ViewProfil = null;
         public static string SignInLoadPage = null;
@@ -59,6 +60,8 @@ namespace SocialNetworkSite
 
             }
             forms.Add(this);
+            buttons.Add(btRegister);
+            buttons.Add(btSignIn);
 
         }
 
@@ -198,14 +201,43 @@ namespace SocialNetworkSite
 
         private void btSignIn_Click(object sender, EventArgs e)
         {
-            CloseForms();
-            ShowForm("SignIn");
+            if (btSignIn.Text == "Sign In")
+            {
+                CloseForms();
+                ShowForm("SignIn");
+            }
+            else if (btSignIn.Text == "Log Out")
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to leave?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (result == DialogResult.Yes)
+                {
+                    LogOut();
+                    CloseForms();
+                    ShowForm("Account");
+                    Users.LoadPictures();
+                    Account.ShowHomePageUsers();
+                }
+
+            }
+
         }
         private void lbSocialNetwork_Click(object sender, EventArgs e)
         {
             CloseForms();
             ShowForm("Account");
+            Users.LoadPictures();
             Account.ShowHomePageUsers();
+        }
+        public static void SignIn()
+        {
+            buttons[0].Visible = false;
+            buttons[1].Text = "Log Out";
+        }
+        public static void LogOut()
+        {
+            buttons[0].Visible = true;
+            buttons[1].Text = "Sign In";
+            SignedEmail = null;
         }
     }
 }

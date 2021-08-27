@@ -14,7 +14,7 @@ namespace SocialNetworkSite
     {
         public static List<Form> forms = new List<Form>();
         public static List<Label> labels = new List<Label>();
-
+        public static SocialNetworkContext context = new SocialNetworkContext();
 
         public Account()
         {
@@ -112,6 +112,7 @@ namespace SocialNetworkSite
 
         private void lbUsers_Click(object sender, EventArgs e)
         {
+            Users.LoadPictures();
             ViewUsers();
         }
 

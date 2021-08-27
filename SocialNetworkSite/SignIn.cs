@@ -35,6 +35,7 @@ namespace SocialNetworkSite
                 MainForm.ClearTextBoxes(gbLogin);
                 
                 MainForm.CloseForms();
+                MainForm.SignIn();
                 MainForm.ShowForm("Account");
                 MainForm.ColourTheme = accounts.Users.FirstOrDefault(User => User.Email == MainForm.SignedEmail).ColourTheme ?? "Light";
                 Settings.ChangeCheck();
