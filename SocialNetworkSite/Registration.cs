@@ -138,7 +138,7 @@ namespace SocialNetworkSite
             DialogResult result = MessageBox.Show("Registration completed successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (result == DialogResult.OK)
             {
-                MainForm.CloseForm("Registration");
+                MainForm.CloseForms();
                 MainForm.ShowForm("SignIn");
 
             }
@@ -249,7 +249,7 @@ namespace SocialNetworkSite
 
         private void lbSignIn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MainForm.CloseForm("Registration");
+            MainForm.CloseForms();
             MainForm.ShowForm("SignIn");
             MainForm.ClearTextBoxes(gbRegister);
 

@@ -19,7 +19,7 @@ namespace SocialNetworkSite
 
         private void lbBackToSignIn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MainForm.CloseForm("ForgotPassword");
+            MainForm.CloseForms();
             MainForm.ShowForm("SignIn");
         }
         private void btRequest_Click(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace SocialNetworkSite
                     MainForm.SendingEmail(tbEmailForgotPassword.Text, $"One-time password change code is {MainForm.passwordCode}", "Password recovery");
                     MessageBox.Show("The change code has been sent to your email address", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MainForm.ClearTextBoxes(gbForgotPassword);
-                    MainForm.CloseForm("ForgotPassword");
+                    MainForm.CloseForms();
                     MainForm.ShowForm("ChangePassword");
 
                 }

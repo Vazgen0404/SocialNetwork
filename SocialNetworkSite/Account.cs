@@ -96,7 +96,7 @@ namespace SocialNetworkSite
         {
             if (MainForm.SignedEmail == null)
             {
-                MainForm.CloseForm("Account");
+                MainForm.CloseForms();
                 MainForm.ShowForm("SignIn");
                 MainForm.SignInLoadPage = "Settings";
             }
@@ -133,7 +133,7 @@ namespace SocialNetworkSite
         {
             if (MainForm.SignedEmail == null)
             {
-                MainForm.CloseForm("Account");
+                MainForm.CloseForms();
                 MainForm.ShowForm("SignIn");
                 MainForm.SignInLoadPage = "Cities";
             }
@@ -148,11 +148,7 @@ namespace SocialNetworkSite
 
         private void Account_Load(object sender, EventArgs e)
         {
-            ResetColours();
-            ChangeColour(lbUsers);
-            HideForms();
-            ShowForm(forms[1]);
-           
+            ShowHomePageUsers();
         }
         public static void ChangeColourTheme2()
         {
@@ -186,6 +182,15 @@ namespace SocialNetworkSite
                 settings.BackColor = SystemColors.Control;
 
             }
+        }
+
+        
+        public static void ShowHomePageUsers()
+        {
+            ResetColours();
+            ChangeColour(labels[1]);
+            HideForms();
+            ShowForm(forms[1]);
         }
 
 

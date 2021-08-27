@@ -51,17 +51,14 @@ namespace SocialNetworkSite
             foreach (Form form in forms)
             {
                 form.TopLevel = false;
-                Controls.Add(form);
+                panel.Controls.Add(form);
                 form.FormBorderStyle = FormBorderStyle.None;
 
-                form.Location = new Point((this.ClientSize.Width - form.ClientSize.Width) / 2,
-                                  (this.ClientSize.Height - form.ClientSize.Height) / 2);
+                form.Location = new Point((this.panel.ClientSize.Width - form.ClientSize.Width) / 2,
+                                  (this.panel.ClientSize.Height - form.ClientSize.Height) / 2);
 
             }
             forms.Add(this);
-
-            
-           
 
         }
 
@@ -74,10 +71,16 @@ namespace SocialNetworkSite
             form.Show();
 
         }
-        public static void CloseForm(string formname)
+        public static void CloseForms()
         {
-            Form form = forms.FirstOrDefault(form => form.Name == formname);
-            form.Hide();
+            foreach (Form form in forms)
+            {
+                if (form.Name != "MainForm")
+                {
+                    form.Hide();
+                }
+
+            }
         }
 
         public static void MessageBoxShow(string message)
@@ -187,8 +190,23 @@ namespace SocialNetworkSite
 
             }
         }
+        private void btRegister_Click(object sender, EventArgs e)
+        {
+            CloseForms();
+            ShowForm("Registration");
+        }
 
-        
+        private void btSignIn_Click(object sender, EventArgs e)
+        {
+            CloseForms();
+            ShowForm("SignIn");
+        }
+        private void lbSocialNetwork_Click(object sender, EventArgs e)
+        {
+            CloseForms();
+            ShowForm("Account");
+            Account.ShowHomePageUsers();
+        }
     }
 }
 

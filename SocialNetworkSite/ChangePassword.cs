@@ -46,7 +46,7 @@ namespace SocialNetworkSite
                                 if (result == DialogResult.OK)
                                 {
                                     MainForm.ClearTextBoxes(gbChangingPassword);
-                                    MainForm.CloseForm("ChangePassword");
+                                    MainForm.CloseForms();
                                     MainForm.ShowForm("SignIn");
 
                                 }

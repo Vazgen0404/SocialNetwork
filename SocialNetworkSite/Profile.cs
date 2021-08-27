@@ -26,7 +26,7 @@ namespace SocialNetworkSite
             User user = null;
             if (MainForm.ViewProfil == null && MainForm.SignedEmail == null)
             {
-                MainForm.CloseForm("Account");
+                MainForm.CloseForms();
                 MainForm.ShowForm("SignIn");
                 MainForm.SignInLoadPage = "Profile";
             }

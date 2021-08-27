@@ -21,19 +21,20 @@ namespace SocialNetworkSite
 
         private void lbCreateAnAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MainForm.CloseForm("SignIn");
+            MainForm.CloseForms();
             MainForm.ShowForm("Registration");
             MainForm.ClearTextBoxes(gbLogin);
 
         }
         private void btSignIn_Click(object sender, EventArgs e)
-        {
+        { 
+           
             if (Checking())
             {
                 MainForm.SignedEmail = tbEmailSignIn.Text;
                 MainForm.ClearTextBoxes(gbLogin);
                 
-                MainForm.CloseForm("SignIn");
+                MainForm.CloseForms();
                 MainForm.ShowForm("Account");
                 MainForm.ColourTheme = accounts.Users.FirstOrDefault(User => User.Email == MainForm.SignedEmail).ColourTheme ?? "Light";
                 Settings.ChangeCheck();
@@ -120,7 +121,7 @@ namespace SocialNetworkSite
 
         private void lbForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MainForm.CloseForm("SignIn");
+            MainForm.CloseForms();
             MainForm.ShowForm("ForgotPassword");
             MainForm.ClearTextBoxes(gbLogin);
         }
