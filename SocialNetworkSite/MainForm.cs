@@ -94,11 +94,8 @@ namespace SocialNetworkSite
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            foreach (Control item in Controls)
-            {
-                item.Location = new Point((this.ClientSize.Width - item.ClientSize.Width) / 2,
-                                          (this.ClientSize.Height - item.ClientSize.Height) / 2);
-            }
+            panelMain.Location = new Point((this.ClientSize.Width - panelMain.ClientSize.Width) / 2,
+                                            (this.ClientSize.Height - panelMain.ClientSize.Height) / 2);
         }
 
 

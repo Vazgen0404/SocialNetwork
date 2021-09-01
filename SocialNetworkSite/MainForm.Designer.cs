@@ -33,13 +33,31 @@ namespace SocialNetworkSite
         /// </summary>
         private void InitializeComponent()
         {
+            this.panelMain = new System.Windows.Forms.Panel();
+            this.panel = new System.Windows.Forms.Panel();
             this.Header = new System.Windows.Forms.GroupBox();
             this.lbSocialNetwork = new System.Windows.Forms.Label();
             this.btSignIn = new System.Windows.Forms.Button();
             this.btRegister = new System.Windows.Forms.Button();
-            this.panel = new System.Windows.Forms.Panel();
+            this.panelMain.SuspendLayout();
             this.Header.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panelMain
+            // 
+            this.panelMain.Controls.Add(this.panel);
+            this.panelMain.Controls.Add(this.Header);
+            this.panelMain.Location = new System.Drawing.Point(0, 0);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(876, 679);
+            this.panelMain.TabIndex = 0;
+            // 
+            // panel
+            // 
+            this.panel.Location = new System.Drawing.Point(1, 78);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(875, 600);
+            this.panel.TabIndex = 10;
             // 
             // Header
             // 
@@ -48,10 +66,10 @@ namespace SocialNetworkSite
             this.Header.Controls.Add(this.btSignIn);
             this.Header.Controls.Add(this.btRegister);
             this.Header.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.Header.Location = new System.Drawing.Point(0, 1);
+            this.Header.Location = new System.Drawing.Point(0, 0);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(875, 72);
-            this.Header.TabIndex = 7;
+            this.Header.Size = new System.Drawing.Size(876, 72);
+            this.Header.TabIndex = 9;
             this.Header.TabStop = false;
             // 
             // lbSocialNetwork
@@ -64,7 +82,6 @@ namespace SocialNetworkSite
             this.lbSocialNetwork.Size = new System.Drawing.Size(224, 40);
             this.lbSocialNetwork.TabIndex = 2;
             this.lbSocialNetwork.Text = "Social Network";
-            this.lbSocialNetwork.Click += new System.EventHandler(this.lbSocialNetwork_Click);
             // 
             // btSignIn
             // 
@@ -76,7 +93,6 @@ namespace SocialNetworkSite
             this.btSignIn.TabStop = false;
             this.btSignIn.Text = "Sign In";
             this.btSignIn.UseVisualStyleBackColor = true;
-            this.btSignIn.Click += new System.EventHandler(this.btSignIn_Click);
             // 
             // btRegister
             // 
@@ -88,14 +104,6 @@ namespace SocialNetworkSite
             this.btRegister.TabStop = false;
             this.btRegister.Text = "Register";
             this.btRegister.UseVisualStyleBackColor = true;
-            this.btRegister.Click += new System.EventHandler(this.btRegister_Click);
-            // 
-            // panel
-            // 
-            this.panel.Location = new System.Drawing.Point(0, 79);
-            this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(875, 600);
-            this.panel.TabIndex = 8;
             // 
             // MainForm
             // 
@@ -103,13 +111,13 @@ namespace SocialNetworkSite
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(876, 679);
-            this.Controls.Add(this.panel);
-            this.Controls.Add(this.Header);
+            this.Controls.Add(this.panelMain);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SocialNetwork";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
+            this.panelMain.ResumeLayout(false);
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
             this.ResumeLayout(false);
@@ -118,11 +126,12 @@ namespace SocialNetworkSite
 
         #endregion
 
+        private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.GroupBox Header;
         private System.Windows.Forms.Label lbSocialNetwork;
         private System.Windows.Forms.Button btSignIn;
         private System.Windows.Forms.Button btRegister;
-        private System.Windows.Forms.Panel panel;
     }
 }
 

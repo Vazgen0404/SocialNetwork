@@ -30,6 +30,7 @@ namespace SocialNetworkSite
         private void InitializeComponent()
         {
             this.gbRegister = new System.Windows.Forms.GroupBox();
+            this.lbPasswordSettings = new System.Windows.Forms.Label();
             this.tbEmailCode = new System.Windows.Forms.TextBox();
             this.lbSignIn = new System.Windows.Forms.LinkLabel();
             this.label8 = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@ namespace SocialNetworkSite
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbPasswordSettings = new System.Windows.Forms.Label();
             this.gbRegister.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,6 +79,17 @@ namespace SocialNetworkSite
             this.gbRegister.Size = new System.Drawing.Size(602, 577);
             this.gbRegister.TabIndex = 5;
             this.gbRegister.TabStop = false;
+            // 
+            // lbPasswordSettings
+            // 
+            this.lbPasswordSettings.AutoSize = true;
+            this.lbPasswordSettings.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbPasswordSettings.Location = new System.Drawing.Point(29, 358);
+            this.lbPasswordSettings.Name = "lbPasswordSettings";
+            this.lbPasswordSettings.Size = new System.Drawing.Size(567, 40);
+            this.lbPasswordSettings.TabIndex = 19;
+            this.lbPasswordSettings.Text = "The password must contain at least three character categories among the following" +
+    ": \r\nUppercase characters (A-Z) Lowercase characters (a-z) Digits (0-9)";
             // 
             // tbEmailCode
             // 
@@ -266,17 +277,6 @@ namespace SocialNetworkSite
             this.label1.Size = new System.Drawing.Size(156, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "------------------";
-            // 
-            // lbPasswordSettings
-            // 
-            this.lbPasswordSettings.AutoSize = true;
-            this.lbPasswordSettings.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbPasswordSettings.Location = new System.Drawing.Point(29, 358);
-            this.lbPasswordSettings.Name = "lbPasswordSettings";
-            this.lbPasswordSettings.Size = new System.Drawing.Size(567, 40);
-            this.lbPasswordSettings.TabIndex = 19;
-            this.lbPasswordSettings.Text = "The password must contain at least three character categories among the following" +
-    ": \r\nUppercase characters (A-Z) Lowercase characters (a-z) Digits (0-9)";
             // 
             // Registration
             // 
