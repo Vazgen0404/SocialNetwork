@@ -82,6 +82,7 @@ namespace SocialNetworkSite
             this.lbSocialNetwork.Size = new System.Drawing.Size(224, 40);
             this.lbSocialNetwork.TabIndex = 2;
             this.lbSocialNetwork.Text = "Social Network";
+            this.lbSocialNetwork.Click += new System.EventHandler(this.lbSocialNetwork_Click);
             // 
             // btSignIn
             // 
@@ -93,6 +94,7 @@ namespace SocialNetworkSite
             this.btSignIn.TabStop = false;
             this.btSignIn.Text = "Sign In";
             this.btSignIn.UseVisualStyleBackColor = true;
+            this.btSignIn.Click += new System.EventHandler(this.btSignIn_Click);
             // 
             // btRegister
             // 
@@ -104,6 +106,7 @@ namespace SocialNetworkSite
             this.btRegister.TabStop = false;
             this.btRegister.Text = "Register";
             this.btRegister.UseVisualStyleBackColor = true;
+            this.btRegister.Click += new System.EventHandler(this.btRegister_Click);
             // 
             // MainForm
             // 
