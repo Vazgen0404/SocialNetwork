@@ -148,8 +148,22 @@ namespace SocialNetworkSite
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            string userEmail = accounts.SavedAccounts.FirstOrDefault(User => User.MachineName == Environment.MachineName)==null ? "":
+                accounts.SavedAccounts.FirstOrDefault(User => User.MachineName == Environment.MachineName).UserEmail;                                                                
+                               
+            if (userEmail != "")
+            {
+                MainForm.SignedEmail = userEmail;
 
-            ShowForm("Account");
+                MainForm.CloseForms();
+                MainForm.SignIn();
+                MainForm.ColourTheme = accounts.Users.FirstOrDefault(User => User.Email == MainForm.SignedEmail).ColourTheme ?? "Light";
+                Settings.ChangeCheck();
+                MainForm.ChangeColourTheme1();
+                Account.ChangeColourTheme2();
+            }
+                ShowForm("Account");                   
+           
         }
 
         public static void ChangeColourTheme1()
@@ -208,15 +222,18 @@ namespace SocialNetworkSite
                 DialogResult result = MessageBox.Show("Are you sure you want to leave?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result == DialogResult.Yes)
                 {
+                    SavedAccount savedAccount = accounts.SavedAccounts.FirstOrDefault(User => User.UserEmail == MainForm.SignedEmail);
+                    accounts.SavedAccounts.Remove(savedAccount);
+                    accounts.SaveChanges();
+
                     LogOut();
                     CloseForms();
                     ShowForm("Account");
                     Users.LoadPictures();
                     Account.ShowHomePageUsers();
+       
                 }
-
             }
-
         }
         private void lbSocialNetwork_Click(object sender, EventArgs e)
         {

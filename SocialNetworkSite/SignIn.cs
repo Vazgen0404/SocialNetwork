@@ -27,13 +27,13 @@ namespace SocialNetworkSite
 
         }
         private void btSignIn_Click(object sender, EventArgs e)
-        { 
-           
+        {
+
             if (Checking())
             {
                 MainForm.SignedEmail = tbEmailSignIn.Text;
                 MainForm.ClearTextBoxes(gbLogin);
-                
+
                 MainForm.CloseForms();
                 MainForm.SignIn();
                 MainForm.ShowForm("Account");
@@ -55,8 +55,18 @@ namespace SocialNetworkSite
                     default:
                         break;
                 }
+
+                RememberingAccount();
             }
         }
+
+        private void RememberingAccount()
+        {
+            SavedAccount savedAccount = new SavedAccount { MachineName = Environment.MachineName, UserEmail = MainForm.SignedEmail };
+            accounts.SavedAccounts.Add(savedAccount);
+            accounts.SaveChanges();
+        }
+
         private bool Checking()
         {
             if (AreCompletedFields())

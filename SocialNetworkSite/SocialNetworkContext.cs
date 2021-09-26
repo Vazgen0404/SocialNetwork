@@ -18,6 +18,7 @@ namespace SocialNetworkSite
         }
 
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<SavedAccount> SavedAccounts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -45,6 +46,10 @@ namespace SocialNetworkSite
             
 
             OnModelCreatingPartial(modelBuilder);
+
+            modelBuilder.Entity<SavedAccount>()
+    .Property(e => e.Id)
+    .ValueGeneratedOnAdd();
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
